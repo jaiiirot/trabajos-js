@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+/* MENU NAVEGACION */
+.navegacion-principal img{
+    width: 15px;
+}
+
+.navegacion-principal{
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px 30px;
+}
+
+.navegacion-principal div,ul{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 15px;
+    list-style: none;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    transition: 0.2s;
+}
+
+ul li a:hover{
+    font-size: 20px;
+    box-shadow: 0px 1px #fff;
+}
+
+/* CUERPO GENERAL */
+.cuerpo-general{
+    background-color: #fff;
+}
+
+.cuerpo-general .lo-importante{
+    background-color: rgb(0, 0, 0);
+    height:65vh;
+}
+
+.cuerpo-general .contenido{
+    position: relative;
+    width: 85%;
+    height: 80vh;
+    margin: 0px auto;
+    color: #fff;
+    overflow: hidden;
+    direction:rtl;
+    display: flex;
+    /* background-color: rgb(0, 0, 0); */
+    outline: 1px solid #000;
+}
+
+.contenido img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: 0px -100px;
+}
+
+.contenido .texto{
+    width: 50%;
+    height: inherit;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 100px 0 0;
+    transition: 0.75s;
+}
+
+.contenido .texto:hover{
+    width: 100%;
+    height: inherit;
+    background-color: rgb(0, 0, 0, 0.8);
+    animation: boton;
+}
+
+.contenido h1{
+    font-size: 50px;
+}
+
+.texto a{
+    text-decoration: none;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    outline: 5px #000 double;
+    width: max-content;
+    margin: 25px 0px;
+    padding: 10px 10px;
+    animation: boton;
+    transition: 0.9s;
+}
+
+.texto a:hover{
+    color: #000;
+    background-color: #fff;
+}
+
+.cuerpo-general .tarjetas{
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: #fff; */
+    position: relative;
+    bottom: 135px;
+    margin: 0px 170px;
+    gap: 20px;
+}
+
+.tarjetas img{
+    width: 100px;
+}
+
+.tarjetas div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    background-color: #fff;
+    gap: 10px;
+    padding: 15px 30px;
+    /* outline: 1px solid #000; */
+    text-align: center;
+}
