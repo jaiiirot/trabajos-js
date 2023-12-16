@@ -51,7 +51,27 @@ for (let publicacion of publicaciones) {
   }
 }
 console.log(publicacionesConLikes);
+
 // Tengo usuarios y quiero buscar aquellos que sean mayores de 18 años
 
-//minuto 48
-//
+const usuarios = [
+  {
+    nombre: "Carlos",
+    edad: 15,
+  },
+  {
+    nombre: "Juan",
+    edad: 25,
+  },
+  {
+    nombre: "Maria",
+    edad: 19,
+  },
+];
+let usuariosMayores = [];
+for (let usuario of usuarios) {
+  if (usuario.edad > 18) {
+    usuariosMayores.push(usuario);
+  }
+}
+console.log(usuariosMayores);
