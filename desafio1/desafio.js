@@ -23,11 +23,13 @@ Archivo de Javascript listo para ejecutarse desde node.
 */
 
 class ProductManager {
-  #codigo = 0;
+  static ID = 0;
+
   constructor() {
     this.productos = [];
   }
-  addProduct = ({ title, descripcion, price, thumbnail, stock }) => {
+
+  addProduct = ({ title, descripcion, price, thumbnail, code, stock }) => {
     if (typeof title !== "string" || title.length === 0)
       return console.log("titulo no es un string y campo obligatorio");
     if (typeof descripcion !== "string" || descripcion.length === 0)
@@ -38,69 +40,63 @@ class ProductManager {
       return console.log("price no es un numero y campo obligatorio");
     if (typeof stock !== "number")
       return console.log("stock no es un numero y campo obligatorio");
-
-    this.#codigo++;
     if (this.productos.length !== 0) {
-      const existe = this.productos.some(
-        (producto) => producto.code === this.#codigo
-      );
+      const existe = this.productos.some((producto) => producto.code === code);
       if (existe === true)
-        return console.log(`Un producto ya tiene el codigo: ${code}`);
+        return console.log(`Un producto ya tiene el code: ${code}`);
     }
+    ProductManager.ID++;
     this.productos.push({
+      id: ProductManager.ID,
       title,
       descripcion,
       price,
       thumbnail,
-      code: this.#codigo,
+      code,
       stock,
     });
   };
 
   getProducts = () => {
-    if (this.productos.length === 0) return console.log("No hay productos");
+    if (this.productos.length === 0) return console.log(this.productos);
     console.log(this.productos);
   };
 
-  getProductsById = (code) => {
-    if (this.productos.length === 0) return console.log("No hay productos");
-    let seEncontro = this.productos.filter((e) => e.code === code);
-    seEncontro.length === 0
-      ? console.log("Not found")
-      : console.log(`El productos es: ${seEncontro[0].title}`);
+  getProductsById = (ID) => {
+    if (this.productos.length === 0) return console.log(this.productos);
+    let prod = this.productos.filter((e) => e.id === ID);
+    prod.length === 0 ? console.log("Not found") : console.log(prod);
   };
 }
 
 let producto1 = new ProductManager();
 
 producto1.addProduct({
-  title: 0,
+  title: "producto prueba",
   descripcion: "Este es un producto prueba",
   price: 200,
   thumbnail: "Sin imagen",
+  code: "abc123",
   stock: 25,
 });
 producto1.addProduct({
-  title: "Short",
-  descripcion: "",
-  price: 200,
-  thumbnail: "ruta 2",
-  stock: 20,
-});
-producto1.addProduct({
-  title: "Pantalon",
-  descripcion: "descripcion del pant",
-  price: "asd",
-  thumbnail: "ruta 1",
-  stock: 10,
-});
-producto1.addProduct({
-  title: "Prueba",
+  title: "producto prueba",
   descripcion: "Este es un producto prueba",
   price: 200,
   thumbnail: "Sin imagen",
+  code: "abc123",
   stock: 25,
 });
+producto1.addProduct({
+  title: "producto prueba2",
+  descripcion: "Este es un producto prueba2",
+  price: 300,
+  thumbnail: "Sin imagen",
+  code: "abc124",
+  stock: 25,
+});
+
 producto1.getProducts();
-producto1.getProductsById(1);
-producto1.getProductsById("abc123");
+
+producto1.getProductsById(2);
+producto1.getProductsById(3);
