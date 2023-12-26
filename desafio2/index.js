@@ -42,6 +42,7 @@ class ProductManager {
 
   constructor() {
     this.productos = [];
+    this.path = "./productos.json";
   }
 
   addProduct = async ({
@@ -67,9 +68,8 @@ class ProductManager {
       if (existe === true)
         return console.log(`Un producto ya tiene el code: ${code}`);
     }
-    ProductManager.ID++;
     this.productos.push({
-      id: ProductManager.ID,
+      id: ProductManager.ID++ + 1,
       title,
       descripcion,
       price,
@@ -78,8 +78,8 @@ class ProductManager {
       stock,
     });
     await fs.promises.writeFile(
-      "./productos.txt",
-      JSON.stringify(this.productos)
+      this.path,
+      JSON.stringify(this.productos, null, "\t")
     );
   };
 
@@ -94,7 +94,7 @@ class ProductManager {
     prod.length === 0 ? console.log("Not found") : console.log(prod);
   };
 
-  updateProduct = (ID, PRODUCT) => {
+  updateProduct = async (ID, PRODUCT) => {
     const aux = this.productos.map((prod) => {
       if (prod.id === ID) {
         prod = { id: prod.id, ...PRODUCT };
@@ -103,76 +103,67 @@ class ProductManager {
       return prod;
     });
     this.productos = aux;
+    await fs.promises.writeFile(
+      this.path,
+      JSON.stringify(this.productos, null, "\t")
+    );
   };
 
-  deleteProduct = (ID) => {
+  deleteProduct = async (ID) => {
     const aux = this.productos.filter((prod) => prod.id !== ID);
     this.productos = aux;
+    await fs.promises.writeFile(
+      this.path,
+      JSON.stringify(this.productos, null, "\t")
+    );
   };
 }
 
 let producto1 = new ProductManager();
 
 producto1.addProduct({
-  title: "producto prueba",
+  title: "PRUEBA 1",
   descripcion: "Este es un producto prueba",
   price: 200,
   thumbnail: "Sin imagen",
-  code: "abc123",
+  code: "abc121",
   stock: 25,
 });
 producto1.addProduct({
-  title: "producto prueba",
+  title: "PRUEBA 2",
   descripcion: "Este es un producto prueba",
   price: 200,
   thumbnail: "Sin imagen",
-  code: "abc123",
+  code: "abc122",
   stock: 25,
 });
-producto1.addProduct({
-  title: "producto prueba2",
+// producto1.getProductsById(2);
+// producto1.getProductsById(3);
+producto1.updateProduct(2, {
+  title: "THIAGO",
   descripcion: "Este es un producto prueba2",
   price: 300,
   thumbnail: "Sin imagen",
   code: "abc124",
   stock: 25,
 });
-
-// // producto1.getProducts();
-
+producto1.addProduct({
+  title: "PRUEBA 3",
+  descripcion: "Este es un producto prueba",
+  price: 200,
+  thumbnail: "Sin imagen",
+  code: "abc122",
+  stock: 25,
+});
+producto1.deleteProduct(3);
+producto1.addProduct({
+  title: "PRUEBA 4",
+  descripcion: "Este es un producto prueba",
+  price: 200,
+  thumbnail: "Sin imagen",
+  code: "abc122",
+  stock: 25,
+});
 // producto1.getProductsById(2);
-// producto1.getProductsById(3);
-
-// producto1.updateProduct(2, {
-//   title: "JAIRO",
-//   descripcion: "Este es un producto prueba2",
-//   price: 300,
-//   thumbnail: "Sin imagen",
-//   code: "abc124",
-//   stock: 25,
-// });
-
-// console.log(
-//   "======================================================================="
-// );
-
-// producto1.getProductsById(2);
-
-// producto1.addProduct({
-//   title: "PRUEBA2",
-//   descripcion: "Este es un producto prueba2",
-//   price: 800,
-//   thumbnail: "Sin imagen",
-//   code: "abc125",
-//   stock: 90,
-// });
 // producto1.deleteProduct(2);
-// producto1.addProduct({
-//   title: "PRUEBA3",
-//   descripcion: "Este es un producto prueba2",
-//   price: 1000,
-//   thumbnail: "Sin imagen",
-//   code: "abc126",
-//   stock: 90,
-// });
 // producto1.getProducts();
