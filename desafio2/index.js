@@ -103,6 +103,7 @@ class ProductManager {
       return prod;
     });
     this.productos = aux;
+    await fs.promises.writeFile(this.path, []);
     await fs.promises.writeFile(
       this.path,
       JSON.stringify(this.productos, null, "\t")
@@ -112,6 +113,7 @@ class ProductManager {
   deleteProduct = async (ID) => {
     const aux = this.productos.filter((prod) => prod.id !== ID);
     this.productos = aux;
+    await fs.promises.writeFile(this.path, []);
     await fs.promises.writeFile(
       this.path,
       JSON.stringify(this.productos, null, "\t")
@@ -161,7 +163,7 @@ producto1.addProduct({
   descripcion: "Este es un producto prueba",
   price: 200,
   thumbnail: "Sin imagen",
-  code: "abc122",
+  code: "abc125",
   stock: 25,
 });
 // producto1.getProductsById(2);
