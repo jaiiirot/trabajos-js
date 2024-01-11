@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
   res.send(prueba());
 });
 
-app.get("/products", (req, res) => {
+app.get("/products?limit", (req, res) => {
   // Entrada: req
   let productos = req.query.limit
     ? productManager.getXProducts(req.query.limit)

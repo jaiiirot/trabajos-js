@@ -1,38 +1,92 @@
 [
 	{
+		"id": 0,
+		"title": "iPhone 13 Pro",
+		"descripcion": "Smartphone de última generación con tecnología avanzada.",
+		"price": 1099.99,
+		"thumbnail": "https://example.com/iphone13pro.jpg",
+		"code": "IPH13P",
+		"stock": 50
+	},
+	{
 		"id": 1,
-		"title": "PRUEBA 1",
-		"descripcion": "Este es un producto prueba",
-		"price": 200,
-		"thumbnail": "Sin imagen",
-		"code": "abc121",
-		"stock": 25
+		"title": "Samsung Galaxy S21",
+		"descripcion": "Teléfono inteligente Android con pantalla de alta resolución.",
+		"price": 899.99,
+		"thumbnail": "https://example.com/galaxys21.jpg",
+		"code": "SGS21",
+		"stock": 30
 	},
 	{
 		"id": 2,
-		"title": "PRUEBA 2",
-		"descripcion": "Este es un producto prueba",
-		"price": 200,
-		"thumbnail": "Sin imagen",
-		"code": "abc122",
-		"stock": 25
+		"title": "Sony PlayStation 5",
+		"descripcion": "Consola de videojuegos de nueva generación con potentes capacidades de juego.",
+		"price": 499.99,
+		"thumbnail": "https://example.com/ps5.jpg",
+		"code": "PS5",
+		"stock": 20
 	},
 	{
 		"id": 3,
-		"title": "PRUEBA 3",
-		"descripcion": "Este es un producto prueba",
-		"price": 200,
-		"thumbnail": "Sin imagen",
-		"code": "abc123",
-		"stock": 25
+		"title": "Nike Air Max 270",
+		"descripcion": "Zapatillas deportivas con diseño elegante y tecnología de amortiguación.",
+		"price": 149.99,
+		"thumbnail": "https://example.com/airmax270.jpg",
+		"code": "NAM270",
+		"stock": 40
 	},
 	{
 		"id": 4,
-		"title": "PRUEBA 4",
-		"descripcion": "Este es un producto prueba",
-		"price": 200,
-		"thumbnail": "Sin imagen",
-		"code": "abc124",
+		"title": "Coca-Cola",
+		"descripcion": "Refresco carbonatado y refrescante de cola.",
+		"price": 1.99,
+		"thumbnail": "https://example.com/cocacola.jpg",
+		"code": "CC01",
+		"stock": 100
+	},
+	{
+		"id": 5,
+		"title": "MacBook Air",
+		"descripcion": "Laptop ligera y potente con sistema operativo macOS.",
+		"price": 999.99,
+		"thumbnail": "https://example.com/macbookair.jpg",
+		"code": "MBAIR",
+		"stock": 15
+	},
+	{
+		"id": 6,
+		"title": "LEGO Star Wars Millennium Falcon",
+		"descripcion": "Set de construcción LEGO con la famosa nave de Star Wars.",
+		"price": 159.99,
+		"thumbnail": "https://example.com/legomillenniumfalcon.jpg",
+		"code": "LEGO001",
 		"stock": 25
+	},
+	{
+		"id": 7,
+		"title": "Fitbit Charge 5",
+		"descripcion": "Banda inteligente de fitness con monitorización avanzada de la salud.",
+		"price": 179.99,
+		"thumbnail": "https://example.com/fitbitcharge5.jpg",
+		"code": "FITC5",
+		"stock": 35
+	},
+	{
+		"id": 8,
+		"title": "Dyson V11 Absolute Vacuum Cleaner",
+		"descripcion": "Aspiradora sin cable con potente succión y filtración avanzada.",
+		"price": 599.99,
+		"thumbnail": "https://example.com/dysonv11.jpg",
+		"code": "DYSONV11",
+		"stock": 10
+	},
+	{
+		"id": 9,
+		"title": "Amazon Echo Dot",
+		"descripcion": "Altavoz inteligente con asistente virtual Alexa integrado.",
+		"price": 49.99,
+		"thumbnail": "https://example.com/echodot.jpg",
+		"code": "ECHODOT",
+		"stock": 50
 	}
 ]

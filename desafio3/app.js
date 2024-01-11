@@ -26,18 +26,33 @@ Formato del entregable
  */
 
 const express = require("express");
-const ProductManager = require("./ProductManager");
-
+const prodManager = require("./ProductManager");
 const app = express();
 const PORT = 3000;
 
 // app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Bienvenido");
+});
 app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
-app.get("/products", async (req, res) => {});
+app.get("/productos", (req, res) => {
+  const limit = req.query.limit;
+  if (limit) {
+    let productos = prodManager.getLimitProducts(parseInt(limit));
+    res.send(productos);
+  } else {
+    res.send(prodManager.getProducts());
+  }
+});
+
+app.get("/productos/:id", async (req, res) => {
+  const product = await prodManager.getProductsById(req.params.id);
+  res.send(product);
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
