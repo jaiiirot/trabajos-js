@@ -1,4 +1,4 @@
-const productManager = require("./manager");
+const { prueba, productManager } = require("./manager");
 const express = require("express");
 const app = express();
 
@@ -7,30 +7,29 @@ app.get("/ping", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  // Entrada: req
-  // Llamado a productManager
-  // Salida: res
+  res.send(prueba());
 });
 
 app.get("/products", (req, res) => {
   // Entrada: req
-  //??
-
-  // Llamado a productManager
-  let productos = productManager.getAllProducts();
-
+  let productos = req.query.limit
+    ? productManager.getXProducts(req.query.limit)
+    : productManager.getAllProducts();
   // Salida: res
   res.send(productos);
 });
 
 app.get("/products/:id", (req, res) => {
-  // Entrada: req
-  //?? 
+  let id = req.params.id;
+  let producto = productManager.getIdProduct(parseInt(id));
+  if (producto == undefined || producto == null) {
+    res.send("No existe el producto");
+  }
+  res.send(producto);
+});
 
-  // Llamado a productManager
-  let producto = productManager.getProduct(":id");
-
-  // Salida: res
+app.get("/products?limit", (req, res) => {
+  let producto = productManager.getXProduct(":id");
   res.send(producto);
 });
 
