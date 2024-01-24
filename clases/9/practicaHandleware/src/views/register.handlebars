@@ -1,0 +1,35 @@
+<div class="containerForm">
+  <form class="form" action="/user" method="post">
+    <div class="title">Registro</div>
+    <div class="input-container">
+      <input name="nombre" class="input" type="text" placeholder="Nombre " />
+    </div>
+    <div class="input-container">
+      <input
+        name="apellido"
+        class="input"
+        type="text"
+        placeholder=" Apellido"
+      />
+    </div>
+    <div class="input-container">
+      <input name="email" class="input" type="text" placeholder="Email " />
+    </div>
+    <div class="input-container">
+      <input
+        name="password"
+        class="input"
+        type="password"
+        placeholder="Contraseña "
+      />
+    </div>
+    <button type="submit" class="submit">submit</button>
+  </form>
+
+  {{#if registroExitoso}}
+    <div>
+      <h1>Registro Exitoso</h1>
+    </div>
+  {{/if}}
+</div>
+{{!-- <script src="js/{{script}}"></script> --}}

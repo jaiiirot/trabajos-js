@@ -1,0 +1,23 @@
+<div>
+  <h1>Bienvenido a un proyecto de HANDLEBARS</h1>
+  <ul>
+    <li>{{user.nombre}}</li>
+    <li>{{user.apellido}}</li>
+    <li>{{user.edad}}</li>
+    <li>{{user.correo}}</li>
+    <li>{{user.telefono}}</li>
+  </ul>
+  {{#if isAdmin}}
+    <h2>Administrador</h2>
+    {{#each food}}
+      <ul>
+        <li>{{this.name}}</li>
+        <li>{{this.price}}</li>
+      </ul>
+    {{/each}}
+  {{else}}
+    <h2>Usuario</h2>
+    <h2>No tienes permiso para ver la lista de alimentos</h2>
+  {{/if}}
+</div>
+<script src="/js/index.js"></script>
