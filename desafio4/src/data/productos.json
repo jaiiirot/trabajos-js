@@ -142,5 +142,14 @@
 		"price": 6500,
 		"stock": 11,
 		"descripcion": "Lechuga Fresca, Cebolla Crispy, Queso Parmesano, Vinagre y aceite de Oliva."
+	},
+	{
+		"id": 16,
+		"code": "dadasdasd",
+		"thumbnail": "https://resizer.glanacion.com/resizer/v2/pizza-con-masa-de-semolin-y-cobertura-de-5PEHFU6OI5CKRKR3RFH5EZMSSM.jpg?auth=4209d6353967859e858249fe164de9c3732f96f95fda2ee735a6768a2641eff2&width=768&height=512&quality=70&smart=true",
+		"title": "pizzas",
+		"price": 2132332,
+		"stock": 12,
+		"descripcion": "asdas das das dadas d adas"
 	}
 ]

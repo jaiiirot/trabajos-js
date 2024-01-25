@@ -2,6 +2,7 @@ const socket = io();
 const tablecontainer = document.getElementById("table-body");
 const countProducts = document.getElementById("count-products");
 const formContainer = document.getElementById("form-post");
+
 formContainer.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = {
@@ -12,15 +13,13 @@ formContainer.addEventListener("submit", (e) => {
     stock: parseInt(e.target[4].value),
     descripcion: e.target[5].value,
   };
-  console.log(data);
   socket.emit("postProduct", data);
   formContainer.reset();
 });
 
 socket.on("recibirProductos", (data) => {
-  tablecontainer.innerHTML = "";
   countProducts.innerHTML = data.length;
-  tablecontainer.innerHTML += data
+  const listProdHTML = data
     .map((product, i) => {
       return `
             <tr>
@@ -63,4 +62,9 @@ socket.on("recibirProductos", (data) => {
     `;
     })
     .join("");
+  tablecontainer.innerHTML = listProdHTML;
+});
+
+socket.on("todosConect", (data) => {
+  console.log(data);
 });

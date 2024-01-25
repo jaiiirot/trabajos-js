@@ -34,9 +34,11 @@ app.use("/", routerViews);
 //SOCKET.IO
 socketServer.on("connection", (socket) => {
   console.log("Un cliente se ha conectado");
-  socket.emit("recibirProductos", prodManager.getProducts());
-  socket.on("postProduct", (data) => {
-    prodManager.addProduct(data);
-    socket.emit("recibirProductos", prodManager.getProducts());
+  socket.on("postProduct", async (data) => {
+    console.log("Evento postProduct recibido en el servidor", data);
+    await prodManager.addProduct(data);
+    socketServer.emit("postProduct", data);
+    socketServer.emit("recibirProductos", prodManager.getProducts());
   });
+  socket.emit("recibirProductos", prodManager.getProducts());
 });
