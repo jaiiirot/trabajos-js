@@ -1,6 +1,6 @@
 // import prodManager from "../controllers/ProductManager.js";
 import __dirname from "../utils.js";
-import express, { response } from "express";
+import express from "express";
 
 const router = express.Router();
 
